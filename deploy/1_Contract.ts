@@ -5,7 +5,7 @@ import { deployAndVerify } from './helpers'
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   await deployAndVerify(hre, 'Contract', {
-    constructorArguments: [123, 321]
+    constructorArguments: [123, 321],
   })
 }
 
