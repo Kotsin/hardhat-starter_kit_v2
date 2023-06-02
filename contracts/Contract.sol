@@ -6,6 +6,7 @@ import {IContract} from "contracts/interfaces/IContract.sol";
 contract Contract is IContract {
     uint256 public value;
     uint256 public immutable immutableValue;
+    uint256 test;
 
     constructor(uint256 _value, uint256 _immutableValue) {
         value = _value;
