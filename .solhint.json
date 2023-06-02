@@ -1,0 +1,58 @@
+{
+  "rules": {
+    "code-complexity": "error",
+    "function-max-lines": "warn",
+    "max-line-length": "warn",
+    "max-states-count": "error",
+    "no-empty-blocks": "warn",
+    "no-unused-vars": "error",
+    "payable-fallback": "warn",
+    "reason-string": "warn",
+    "constructor-syntax": "error",
+
+    "comprehensive-interface": "warn",
+    
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "const-name-snakecase": "error",
+    "contract-name-camelcase": "error",
+    "event-name-camelcase": "error",
+    "func-name-mixedcase": "error",
+    "func-param-name-mixedcase": "error",
+    "private-vars-leading-underscore": "warn",
+    "modifier-name-mixedcase": "error",
+    "use-forbidden-name": "off",
+    "var-name-mixedcase": "error",
+    "imports-on-top": "error",
+    "ordering": "error",
+    "visibility-modifier-order": "error",
+
+    "avoid-call-value": "warn",
+    "avoid-low-level-calls": "off",
+    "avoid-sha3": "error",
+    "avoid-suicide": "error",
+    "avoid-throw": "error",
+    "avoid-tx-origin": "error",
+    "check-send-result": "error",
+    "compiler-version": [
+      "error",
+      "^0.8.4"
+    ],
+    "func-visibility": [
+      "warn",
+      {
+        "ignoreConstructors": true
+      }
+    ],
+    "mark-callable-contracts": "off",
+    "multiple-sends": "off",
+    "no-complex-fallback": "warn",
+    "no-inline-assembly": "off",
+    "not-rely-on-block-hash": "error",
+    "not-rely-on-time": "off",
+    "reentrancy": "error",
+    "state-visibility": "error"    
+  }
+}

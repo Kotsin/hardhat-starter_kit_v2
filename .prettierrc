@@ -1,0 +1,20 @@
+{
+  "plugins": ["./node_modules/prettier-plugin-solidity"],
+  "printWidth": 120,
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": "*.sol",
+      "options": {
+        "singleQuote": false,
+        "tabWidth": 4,
+        "printWidth": 100,
+        "explicitTypes": "always"
+      }
+    }
+  ]
+}
