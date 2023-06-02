@@ -7,15 +7,18 @@ import 'hardhat-contract-sizer'
 import 'hardhat-deploy'
 import 'hardhat-gas-reporter'
 import 'solidity-coverage'
+import '@nomiclabs/hardhat-truffle5'
+import '@nomiclabs/hardhat-web3'
+import 'solidity-docgen'
 
 import * as dotenv from 'dotenv'
 import { HardhatUserConfig } from 'hardhat/types'
 
 dotenv.config()
 
-if (!process.env.DEPLOYER_PRIVATE_KEY) throw new Error("Specify 'process.env.DEPLOYER_PRIVATE_KEY' in .env file")
-if (!process.env.OWNER_PRIVATE_KEY) throw new Error("Specify 'process.env.OWNER_PRIVATE_KEY' in .env file")
-if (!process.env.SIGNER_PRIVATE_KEY) throw new Error("Specify 'process.env.SIGNER_PRIVATE_KEY' in .env file")
+if (!process.env.DEPLOYER_PRIVATE_KEY) throw new Error('Specify \'process.env.DEPLOYER_PRIVATE_KEY\' in .env file')
+if (!process.env.OWNER_PRIVATE_KEY) throw new Error('Specify \'process.env.OWNER_PRIVATE_KEY\' in .env file')
+if (!process.env.SIGNER_PRIVATE_KEY) throw new Error('Specify \'process.env.SIGNER_PRIVATE_KEY\' in .env file')
 
 const config: HardhatUserConfig = {
   solidity: '0.8.16',
