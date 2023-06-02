@@ -7,7 +7,6 @@ import 'hardhat-contract-sizer'
 import 'hardhat-deploy'
 import 'hardhat-gas-reporter'
 import 'solidity-coverage'
-import '@nomiclabs/hardhat-truffle5'
 import '@nomiclabs/hardhat-web3'
 import 'solidity-docgen'
 
