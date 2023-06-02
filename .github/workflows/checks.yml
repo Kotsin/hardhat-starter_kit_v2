@@ -34,8 +34,8 @@ jobs:
         uses: ./.github/actions/setup
       - name: Run tests and generate gas report
         run: npm run test
-        with:
-          token: ${{ github.token }}
+        # with:
+        #   token: ${{ github.token }}
 
   coverage:
     runs-on: ubuntu-latest
@@ -47,8 +47,8 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
       - uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+        # with:
+        #   token: ${{ secrets.CODECOV_TOKEN }}
 
   slither:
     runs-on: ubuntu-latest
