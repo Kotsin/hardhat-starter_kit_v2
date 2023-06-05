@@ -96,7 +96,7 @@ describe('Farming', function () {
       await loadFixture(deployInitFixture)
       await stakingToken.connect(accounts[0]).approve(farming.address, ethers.utils.parseEther('100'))
       await expect(farming.connect(accounts[0]).deposit(ethers.utils.parseEther('100'))).to.be.revertedWith(
-        'Staking is not up yet',
+        'Farming is not up yet',
       )
     })
 
