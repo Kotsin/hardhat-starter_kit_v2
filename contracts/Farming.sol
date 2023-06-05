@@ -45,15 +45,15 @@ contract Farming {
     event Withdrawn(address _address);
     event Claimed(address _address, uint256 _amount);
 
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not an owner");
+        _;
+    }
+
     constructor(address _stakingToken, address _rewardToken) {
         owner = msg.sender;
         stakingToken = IERC20Metadata(_stakingToken);
         rewardToken = IERC20Metadata(_rewardToken);
-    }
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Not an owner");
-        _;
     }
 
     function initialize(
@@ -80,11 +80,7 @@ contract Farming {
     function deposit(uint256 _amount) external {
         require(startTime <= block.timestamp, "Farming is not up yet");
         require(_amount <= tokensLeft, "Too many tokens contributed");
-        users[msg.sender] = User({
-            amount: _amount,
-            depositTime: block.timestamp,
-            claimed: false
-        });
+        users[msg.sender] = User({amount: _amount, depositTime: block.timestamp, claimed: false});
         tokensLeft -= _amount;
         stakingToken.safeTransferFrom(msg.sender, address(this), _amount);
         emit Deposited(msg.sender, _amount);
@@ -102,14 +98,12 @@ contract Farming {
     function claimRewards() external {
         User memory user = users[msg.sender];
         require(
-            user.depositTime + epochDuration * amountOfEpochs <=
-                block.timestamp,
+            user.depositTime + epochDuration * amountOfEpochs <= block.timestamp,
             "too early to claim"
         );
         require(!user.claimed, "already claimed");
         users[msg.sender].claimed = true;
-        uint256 amount = (user.amount * percentage * (amountOfEpochs)) /
-            HUNDRED_PERCENT;
+        uint256 amount = (user.amount * percentage * (amountOfEpochs)) / HUNDRED_PERCENT;
         rewardToken.safeTransfer(msg.sender, amount);
         emit Claimed(msg.sender, amount);
     }
