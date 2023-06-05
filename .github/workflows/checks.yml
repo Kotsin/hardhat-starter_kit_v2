@@ -48,7 +48,7 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=4096
       - uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
-          path: '/coverage/lcov.info'
+          path: './coverage/lcov.info'
           min_coverage: 90
 
   slither:
