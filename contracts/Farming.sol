@@ -41,6 +41,13 @@ contract Farming {
     //mapping for users
     mapping(address => User) public users;
 
+    event Initialized(
+        uint256 _tokensLeft,
+        uint256 _percentage,
+        uint256 _startTime,
+        uint256 _amountOfEpochs,
+        uint256 _epochDuration
+    );
     event Deposited(address _address, uint256 _amount);
     event Withdrawn(address _address);
     event Claimed(address _address, uint256 _amount);
@@ -75,6 +82,7 @@ contract Farming {
             address(this),
             ((_totalAmount * _percentage * _amountOfEpochs) / HUNDRED_PERCENT)
         );
+        emit Initialized(_totalAmount, _percentage, _startTime, _amountOfEpochs, _epochDuration);
     }
 
     function deposit(uint256 _amount) external {
