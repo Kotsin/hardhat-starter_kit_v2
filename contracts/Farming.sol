@@ -17,13 +17,13 @@ contract Farming {
     uint256 public constant HUNDRED_PERCENT = 10000;
 
     //sc owner
-    address public owner;
+    address public immutable owner;
 
     //address of a staking token
-    IERC20Metadata public stakingToken;
+    IERC20Metadata public immutable stakingToken;
 
     //address of a reward token
-    IERC20Metadata public rewardToken;
+    IERC20Metadata public immutable rewardToken;
 
     //amount of tokens left that can be staked
     uint256 public tokensLeft;
