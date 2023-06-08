@@ -15,16 +15,17 @@
     "test": "npm run format:t && hardhat test",
     "deploy:m": "npm run format:c && hardhat deploy --tags mainnet",
     "coverage": "env COVERAGE=true hardhat coverage",
-    "size": "npm run compile && hardhat size-contracts"
+    "size": "npm run compile && hardhat size-contracts",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.3",
-    "keccak256": "^1.0.2",
-    "merkletreejs": "^0.2.13",
-    "solidity-docgen": "^0.6.0-beta.29",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
-    "@nomiclabs/hardhat-etherscan": "3.1.0",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@nomiclabs/hardhat-waffle": "^2.0.0",
+    "@openzeppelin/contracts": "^4.7.0",
     "@typechain/ethers-v5": "^7.0.1",
     "@typechain/hardhat": "^2.3.0",
     "@types/chai": "^4.2.21",
@@ -49,15 +50,18 @@
     "hardhat-deploy": "^0.11.11",
     "hardhat-deploy-ethers": "0.3.0-beta.13",
     "hardhat-gas-reporter": "^1.0.4",
+    "husky": "^8.0.0",
+    "husky-init": "^8.0.0",
+    "keccak256": "^1.0.2",
+    "merkletreejs": "^0.2.13",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "1.0.0-beta.19",
     "solhint": "^3.3.7",
     "solidity-coverage": "^0.7.21",
+    "solidity-docgen": "^0.6.0-beta.29",
     "ts-node": "^10.1.0",
     "typechain": "^5.2.0",
-    "typescript": "^4.5.2"
-  },
-  "dependencies": {
-    "@openzeppelin/contracts": "^4.7.0"
+    "typescript": "^4.5.2",
+    "lint-staged": "^13.2.2"
   }
 }
