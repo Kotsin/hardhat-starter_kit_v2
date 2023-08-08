@@ -17,7 +17,7 @@ const config: HardhatUserConfig = {
   solidity: '0.8.17',
   networks: {
     sepolia: {
-      url: process.env.SEPOLIA_URL ?? '',
+      url: process.env.JSON_RPC_PROVIDER_URL ?? '',
       verify: {
         etherscan: {
           apiKey: process.env.ETHERSCAN_API_KEY,
