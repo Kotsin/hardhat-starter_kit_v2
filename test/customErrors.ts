@@ -1,30 +1,30 @@
-import { BigNumber } from 'ethers'
+import { BigNumber } from 'ethers';
 
 export function customError(error: string, args?: ErrorArg[]) {
-  const errorArgs = args ? concatErrorArgs(args) : ''
-  return `VM Exception while processing transaction: reverted with custom error '${error}(${errorArgs})'`
+  const errorArgs = args ? concatErrorArgs(args) : '';
+  return `VM Exception while processing transaction: reverted with custom error '${error}(${errorArgs})'`;
 }
 
 function concatErrorArgs(arr: Array<ErrorArg>) {
-  let result = ''
+  let result = '';
   for (let i = 0; i < arr.length; i++) {
-    result += parseError(arr[i])
+    result += parseError(arr[i]);
     if (i < arr.length - 1) {
-      result += ', '
+      result += ', ';
     }
   }
-  return result
+  return result;
 }
 
 function parseError(error?: ErrorArg) {
   if (typeof error === 'string') {
-    return `"${error.toString()}"`
+    return `"${error.toString()}"`;
   } else if (typeof error === 'number' || error instanceof BigNumber) {
-    return error.toString()
+    return error.toString();
   } else if (Array.isArray(error)) {
-    return `[${concatErrorArgs(error)}]`
+    return `[${concatErrorArgs(error)}]`;
   } else {
-    return ''
+    return '';
   }
 }
 
