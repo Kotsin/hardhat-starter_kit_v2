@@ -3,7 +3,7 @@
         "eslint --fix",
         "prettier --write"
     ],
-    "*.{sol}": [
+    "*.sol": [
         "solhint",
         "prettier --write"
     ]
