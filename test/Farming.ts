@@ -20,7 +20,7 @@ const amountOfEpochs = 3
 
 describe('Farming', function () {
   async function deployFixture() {
-    [owner, ...accounts] = await ethers.getSigners()
+    ;[owner, ...accounts] = await ethers.getSigners()
     const Token = await ethers.getContractFactory('MyToken')
     stakingToken = await Token.deploy()
     rewardToken = await Token.deploy()
