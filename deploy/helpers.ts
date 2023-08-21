@@ -6,9 +6,9 @@ export async function deployAndVerify(
   hre: HardhatRuntimeEnvironment,
   contractName: string,
   options?: {
-    constructorArguments?: any[]
-    fromNamedAccount?: string
-    deploymentName?: string
+    constructorArguments?: any[];
+    fromNamedAccount?: string;
+    deploymentName?: string;
   },
 ) {
   const { deployments, getNamedAccounts } = hre;

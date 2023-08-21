@@ -28,5 +28,5 @@ function parseError(error?: ErrorArg) {
   }
 }
 
-type ErrorArgFraction = number | BigNumber | string
-type ErrorArg = ErrorArgFraction | Array<ErrorArgFraction>
+type ErrorArgFraction = number | BigNumber | string;
+type ErrorArg = ErrorArgFraction | Array<ErrorArgFraction>;
