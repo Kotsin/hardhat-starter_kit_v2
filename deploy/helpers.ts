@@ -6,7 +6,7 @@ export async function deployAndVerify(
   hre: HardhatRuntimeEnvironment,
   contractName: string,
   options?: {
-    constructorArguments?: any[];
+    constructorArguments?: any[]; // eslint-disable-line
     fromNamedAccount?: string;
     deploymentName?: string;
   },
