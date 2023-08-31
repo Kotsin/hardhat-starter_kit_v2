@@ -3,7 +3,7 @@ import { ethers } from 'hardhat';
 import { time, loadFixture } from '@nomicfoundation/hardhat-toolbox/network-helpers';
 import { HardhatEthersSigner } from '@nomicfoundation/hardhat-ethers/signers';
 
-import { MyToken, Farming } from '../typechain-types/contracts';
+import { MyToken, Farming, MyToken__factory, Farming__factory } from '../typechain-types/';
 
 // variables
 let stakingToken: MyToken;
@@ -22,11 +22,9 @@ const amountOfEpochs: bigint = BigInt(3);
 describe('Farming', function () {
   async function deployFixture() {
     [owner, ...accounts] = await ethers.getSigners();
-    const Token = await (ethers as any).getContractFactory('MyToken'); // eslint-disable-line
-    stakingToken = await Token.connect(owner).deploy();
-    rewardToken = await Token.deploy();
-    const Farming = await (ethers as any).getContractFactory('Farming'); // eslint-disable-line
-    farming = await Farming.deploy(stakingToken.getAddress(), rewardToken.getAddress());
+    stakingToken = await new MyToken__factory(owner).deploy();
+    rewardToken = await new MyToken__factory(owner).deploy();
+    farming = await new Farming__factory(owner).deploy(stakingToken.getAddress(), rewardToken.getAddress());
 
     for (let i = 0; i < 10; i++) {
       await stakingToken.mint(accounts[0].address, ethers.parseEther('100'));
@@ -34,11 +32,9 @@ describe('Farming', function () {
   }
 
   async function deployInitFixture() {
-    const Token = await (ethers as any).getContractFactory('MyToken'); // eslint-disable-line
-    stakingToken = await Token.deploy();
-    rewardToken = await Token.deploy();
-    const Farming = await (ethers as any).getContractFactory('Farming'); // eslint-disable-line
-    farming = await Farming.deploy(stakingToken.getAddress(), rewardToken.getAddress());
+    stakingToken = await new MyToken__factory(owner).deploy();
+    rewardToken = await new MyToken__factory(owner).deploy();
+    farming = await new Farming__factory(owner).deploy(stakingToken.getAddress(), rewardToken.getAddress());
 
     await rewardToken
       .connect(owner)

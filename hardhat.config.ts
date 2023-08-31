@@ -32,7 +32,7 @@ const config: HardhatUserConfig = {
       // allowUnlimitedContractSize: true,
       forking: process.env.FORK ? forkingConfig : undefined,
       accounts: {
-        mnemonic: process.env.MNEMONIC,
+        mnemonic: process.env.MNEMONIC ?? 'test test test test test test test test test test test junk',
         accountsBalance: '1000000000000000000000000000000',
       },
       live: false,
