@@ -1,13 +1,7 @@
 import './tasks';
 import '@nomicfoundation/hardhat-toolbox';
-// import '@nomiclabs/hardhat-ethers';
-// import '@nomiclabs/hardhat-etherscan';
-// import '@nomiclabs/hardhat-waffle';
-// import 'hardhat-contract-sizer';
-// import 'hardhat-deploy';
-// import 'hardhat-gas-reporter';
-// import 'solidity-coverage';
-
+import 'hardhat-deploy';
+import 'hardhat-contract-sizer';
 import * as dotenv from 'dotenv';
 import { HardhatUserConfig } from 'hardhat/types';
 
@@ -54,9 +48,15 @@ const config: HardhatUserConfig = {
     },
   },
   gasReporter: {
-    enabled: !!process.env.REPORT_GAS,
+    enabled: process.env.REPORT_GAS !== undefined,
     currency: 'USD',
+    outputFile: 'gas-report.txt',
+    noColors: true,
   },
+  mocha: {
+    timeout: 200000, 
+  },
+
 };
 
 export default config;
