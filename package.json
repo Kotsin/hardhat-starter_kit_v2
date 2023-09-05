@@ -37,6 +37,7 @@
     "prettier-plugin-solidity": "^1.1.3"
   },
   "dependencies": {
-    "solhint": "^3.6.2"
+    "solhint": "^3.6.2",
+    "solidity-docgen": "^0.6.0-beta.36"
   }
 }

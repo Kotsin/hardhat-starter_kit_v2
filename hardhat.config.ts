@@ -2,6 +2,7 @@ import './tasks';
 import '@nomicfoundation/hardhat-toolbox';
 import 'hardhat-deploy';
 import 'hardhat-contract-sizer';
+import 'solidity-docgen';
 import * as dotenv from 'dotenv';
 import { HardhatUserConfig } from 'hardhat/types';
 
